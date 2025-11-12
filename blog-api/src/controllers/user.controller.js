@@ -8,7 +8,12 @@ export const getUsers = async (req, res) => {
 export const getUser = async (req, res) => {
   const user = await User.getUserById(req.params.id);
   if (!user) return res.status(404).json({ error: 'Usuario no encontrado' });
-  res.json(user);
+  const dataUser = {
+    nombre: user.nombre,
+    email: user.email,
+    createAt: user.created_at
+  }
+  res.json(dataUser);
 };
 
 export const addUser = async (req, res) => {
