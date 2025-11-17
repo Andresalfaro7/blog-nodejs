@@ -3,7 +3,7 @@ import { getUsers, getUser, addUser, editUser, removeUser } from '../controllers
 
 const router = express.Router();
 
-router.get('/', getUsers);
+router.get('/format', getUsers);
 router.get('/:id', getUser);
 router.post('/', addUser);
 router.put('/:id', editUser);
