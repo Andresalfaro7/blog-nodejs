@@ -17,12 +17,10 @@ export const getBlogs = async (req, res) => {
 
 export const createNewBlog = async (req, res) => {
   try {
-    if (!req.file) return res.status(400).json({message: "La imagen es obligatoria"});
-    
-    const { titulo, contenido, id_usuario, id_categoria, id_subcategoria } = req.body;
-    const imagen = req.file ? req.file.filename : null;
+    if (!req.file) return res.status(400).json({ message: "La imagen es obligatoria" });
+    req.body.imagen = req.file ? req.file.filename : null;
 
-    const insertId = await createBlog(titulo, contenido, imagen, id_usuario, id_categoria, id_subcategoria);
+    const insertId = await createBlog(req.body);
     res.status(201).json({ message: 'Blog creado exitosamente', id: insertId });
   } catch (error) {
     res.status(500).json({ error: error.message });
