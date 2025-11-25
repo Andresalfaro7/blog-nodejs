@@ -41,3 +41,11 @@ CREATE TABLE blogs (
   FOREIGN KEY (id_categoria) REFERENCES categorias(id) ON DELETE CASCADE,
   FOREIGN KEY (id_subcategoria) REFERENCES subcategorias(id) ON DELETE CASCADE
 );
+
+CREATE TABLE active_tokens (
+  id BIGINT AUTO_INCREMENT PRIMARY KEY,
+  user_id BIGINT NOT NULL,
+  token VARCHAR(500) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
