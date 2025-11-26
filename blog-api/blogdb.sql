@@ -48,6 +48,10 @@ CREATE TABLE active_tokens (
   token VARCHAR(500) NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (user_id) REFERENCES usuarios(id) ON DELETE CASCADE
+<<<<<<< HEAD
 );
 
 
+=======
+);
+>>>>>>> 804c4b54a6f5e52a379aa186cd61d78c1793baa0

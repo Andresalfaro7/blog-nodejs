@@ -6,6 +6,7 @@ export const existUser = async (id) => {
   return rows[0] || null;
 };
 
+<<<<<<< HEAD
 export const getUserByEmail = async (email) => {
   const [rows] = await pool.query('SELECT * FROM usuarios WHERE email = ?', [email]);
   return rows[0] || null;
@@ -26,4 +27,9 @@ export const verifyPassword = async (email, password) => {
     return null;
   }
   return null;
+=======
+export const getUserByEmail = async (email) =>{
+  const [rows] = await pool.query('SELECT email FROM usuarios WHERE email = ?', [email]);
+  return rows[0] || null;
+>>>>>>> 804c4b54a6f5e52a379aa186cd61d78c1793baa0
 }
